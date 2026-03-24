@@ -1,0 +1,18 @@
+# Usamos una imagen de Java 17
+FROM eclipse-temurin:17-jdk-alpine
+
+# Etiqueta de mantenimiento 
+LABEL maintainer="josalf15@gmail.com"
+
+# Directorio de trabajo dentro del contenedor
+WORKDIR /app
+
+# Copiamos el archivo .jar compilado al contenedor
+# (asuminedo que compilaras antes de crear imagen)
+COPY target/InventariosApplication-0.0.1-SNAPSHOT.jar app.jar
+
+# Exponemos el puerto que usa Spring Boot
+EXPOSE 8080
+
+# Comando para arrancar la aplicación
+ENTRYPOINT ["java", "-jar", "app.jar"]
