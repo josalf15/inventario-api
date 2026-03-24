@@ -1,5 +1,5 @@
 # Usamos una imagen de Java 17
-FROM eclipse-temurin:17-jdk-alpine
+FROM eclipse-temurin:17-jdk-jammy
 
 # Etiqueta de mantenimiento 
 LABEL maintainer="josalf15@gmail.com"
@@ -8,8 +8,7 @@ LABEL maintainer="josalf15@gmail.com"
 WORKDIR /app
 
 # Copiamos el archivo .jar compilado al contenedor
-# (asuminedo que compilaras antes de crear imagen)
-COPY target/InventariosApplication-0.0.1-SNAPSHOT.jar app.jar
+COPY target/inventarios-0.0.1-SNAPSHOT.jar app.jar
 
 # Exponemos el puerto que usa Spring Boot
 EXPOSE 8080
